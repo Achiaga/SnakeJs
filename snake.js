@@ -51,7 +51,6 @@ function foodCoordinates() {
 function drawFood() {
 	if (foodX % 15 !== 0 || foodY % 15 !== 0) {
 		foodCoordinates();
-		console.log(foodX, foodY);
 	} else {
 		ctx.beginPath();
 		ctx.rect(foodX, foodY, squareSnake, squareSnake);
@@ -160,7 +159,6 @@ function draw() {
 	}
 	snakeBody[0].x += movX;
 	snakeBody[0].y += movY;
-	console.log(snakeBody);
 	if (checkCollision()) {
 		clearInterval(game);
 		return;
