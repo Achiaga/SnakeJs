@@ -1,22 +1,27 @@
 var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
 document.addEventListener('keydown', keyDownEvent);
+
 //draw Snakevar
 squareSnake = 15;
 var snakeWidth = squareSnake;
 var snakeX = canvas.width / 2;
 var snakeHeight = squareSnake;
 var snakeY = canvas.height / 2;
+
 //draw Foodvar
 foodX = 10;
 var foodY = 10;
+
 //snake
 var movX = 0;
 var movY = 0;
 var X = false;
 var Y = false;
+
 //scorevar
 score = 0;
+
 function drawSnake() {
 	ctx.beginPath();
 	ctx.rect(snakeX, snakeY, snakeWidth, snakeHeight);
@@ -25,10 +30,13 @@ function drawSnake() {
 	ctx.closePath();
 }
 function foodCoordinates() {
-	if (foodX % 15 !== 0) {
-		foodX = Math.floor(Math.random() * 100);
-	} else if (foodY % 15 !== 0) {
-		foodY = Math.floor(Math.random() * 100);
+	if (foodX % 15 !== 0 || foodY % 15 !== 0) {
+		while (foodX % 15 !== 0) {
+			foodX = Math.floor(Math.random() * 100);
+		}
+		while (foodY % 15 !== 0) {
+			foodY = Math.floor(Math.random() * 100);
+		}
 	}
 }
 function drawFood() {
@@ -62,7 +70,6 @@ function eatFood() {
 	foodX = 10;
 	foodY = 10;
 	drawFood();
-	console.log(score);
 }
 function drawScore() {
 	var score_text = 'Score: ' + score;
@@ -140,7 +147,6 @@ function draw() {
 	snakeY += movY;
 	if (checkCollision()) {
 		clearInterval(game);
-		console.log(snakeY);
 		return;
 	}
 }
