@@ -106,7 +106,7 @@ function checkCollision() {
 }
 
 function tailColission() {
-	if (length > 4 && snakeBody[0].x !== foodX && snakeBody[0].y !== foodY) {
+	if (length > 4) {
 		for (var i = 2; i < length; i++) {
 			if (
 				snakeBody[0].x === snakeBody[i].x &&
