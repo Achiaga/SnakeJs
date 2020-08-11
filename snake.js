@@ -52,16 +52,6 @@ function drawSnake() {
 
 		ctx.closePath();
 	}
-
-	// ctx.beginPath();
-
-	// ctx.rect(snakeBody[0].x, snakeBody[0].y, snakeWidth, snakeHeight);
-
-	// ctx.fillStyle = 'red';
-
-	// ctx.fill();
-
-	// ctx.closePath();
 }
 
 function foodCoordinates() {
@@ -108,11 +98,8 @@ function checkCollision() {
 function tailColission() {
 	if (length > 4) {
 		for (var i = 2; i < length; i++) {
-			if (
-				snakeBody[0].x === snakeBody[i].x &&
-				snakeBody[0].y === snakeBody[i].y
-			) {
-				return true;
+			if (snakeBody[0].x === snakeBody[i].x && snakeBody[0].y === snakeBody[i].y) {
+				return false;
 			}
 		}
 	}
